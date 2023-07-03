@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EmployeeModels.Model.DesignationModel>
+
+@{
+    ViewBag.Title = "GetDesignation";
+}
+
+<h2 class="text-center">Designation</h2>
+<div class="d-flex justify-content-center">
+    <hr class="w-25 " />
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table d-flex justify-content-center">
+        <tr class="text-center table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<h3 class="text-center"> @TempData["Count"]</h3>
+@Html.ActionLink("Back To List ", "Index", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-success my-3  me-2" })

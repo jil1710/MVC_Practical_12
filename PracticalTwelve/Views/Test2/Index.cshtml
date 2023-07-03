@@ -1,0 +1,78 @@
+﻿@model IEnumerable<EmployeeModels.Model.Test2Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Employee List</h2>
+<div class="d-flex justify-content-center">
+    <hr class="w-25 "/>
+</div>
+
+<p>
+    @Html.ActionLink("Add Empployee Data", "InsertEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-success my-3  me-2" })
+    @Html.ActionLink("Add Employee", "Create", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-primary my-3  me-2" })
+    @Html.ActionLink("Delete All Employee", "DeleteAllEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-danger me-2" })
+</p>
+<table class="table">
+    <tr class="table-dark text-center">
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Get Empployee Age less then 2001", "GetEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-info my-3  me-2" })
+@Html.ActionLink("Get Total Salary ", "GetTotalEmployeeSalary", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-secondary my-3  me-2" })
+@Html.ActionLink("Get Without Middle Name Employee ", "MiddleNameNullCount", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-primary my-3  me-2" })
+
+
+<h2 class="text-center">@TempData["Count"]</h2>
+<h3 class="text-center">@TempData["TotalSalary"]</h3>

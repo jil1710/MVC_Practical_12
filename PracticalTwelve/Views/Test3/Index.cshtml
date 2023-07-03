@@ -1,0 +1,95 @@
+﻿@model IEnumerable<EmployeeModels.Model.Test3Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-striped table-hover">
+    <tr class="table-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignationId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignationId)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Get Designation ", "GetDesignation", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-primary my-3  me-2" })
+@Html.ActionLink("Get Des Count ", "GetDesignationCount", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-secondary my-3  me-2" })
+@Html.ActionLink("Get EmpWith Des ", "GetEmpWithDesignation", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-success my-3  me-2" })
+@Html.ActionLink("Insert Designation ", "InsertDesignationUsingsp", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-warning my-3  me-2" })
+@Html.ActionLink("Insert Employee", "InsertEmployeeUsingsp", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-info my-3  me-2" })
+@Html.ActionLink("GetDes more One ", "GetDesignationNameMoreThenOneTime", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-dark my-3  me-2" })
+@Html.ActionLink("GetEmp withsp", "GetEmployeeWithsp", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-secondary my-3  me-2" })
+@Html.ActionLink("GetEmp withIdsp", "GetEmpWithDesignationId", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-primary my-3  me-2" })
+@Html.ActionLink("GetEmp MaxSal", "EmpMaxSalary", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-info my-3  me-2" })
+
+@{if (TempData["DesignationList"] != null)
+    {
+    <h3 class="text-center mt-5"> Designation names that have more than 1 employee :</h3>
+        foreach (var data in (List<string>)TempData["DesignationList"])
+        {
+        <h4 class="text-center"><li>@data</li></h4>
+        }
+     }
+  }
+
+@{ 
+    if(TempData["EmpMaxSal"] != null)
+            {
+                <h4 class="text-center mt-5">@TempData["EmpMaxSal"] have maximun salary.</h4>
+            }
+ }

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EmployeeModels.Model.Test1Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Employee List</h2>
+<div class="d-flex justify-content-center">
+    <hr class="w-25 " />
+</div>
+
+<p>
+    @Html.ActionLink("Add Empployee Data", "InsertEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-success my-3  me-2" })
+    @Html.ActionLink("Add Empployee", "Create", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-info" })
+</p>
+<table class="table my-2">
+    <tr class="table-dark text-center">
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="">
+    @Html.ActionLink("Update First Name", "UpdateFName", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-primary my-4 me-2"}) 
+    @Html.ActionLink("Update Middle Name", "UpdateMName", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-secondary me-2" })
+    @Html.ActionLink("Delete Employee", "Delete", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-warning me-2" })
+    @Html.ActionLink("Delete All Employee", "DeleteAllEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-danger me-2" })
+</div>
