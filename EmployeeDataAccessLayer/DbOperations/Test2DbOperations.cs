@@ -57,8 +57,12 @@ namespace EmployeeDataAccessLayer.DbOperations
 		{
 			try
 			{
-				conn.Open();
 				string AddStudent = $"INSERT INTO [PracThirteen].[dbo].[TestTwoEmployee] (FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary) VALUES ('{employee.FirstName}', '{employee.MiddleName}', '{employee.LastName}', '{employee.DOB.Year}-{employee.DOB.Month}-{employee.DOB.Day}', '{employee.MobileNumber}','{employee.Address}',{employee.Salary})";
+				if(employee.MiddleName == "" || employee.MiddleName == null)
+				{
+					AddStudent = $"INSERT INTO[PracThirteen].[dbo].[TestTwoEmployee](FirstName, LastName, DOB, MobileNumber, Address, Salary) VALUES('{employee.FirstName}', '{employee.LastName}', '{employee.DOB.Year}-{employee.DOB.Month}-{employee.DOB.Day}', '{employee.MobileNumber}', '{employee.Address}',{ employee.Salary})";
+				}
+				conn.Open();
 				SqlCommand sqlCommand = new SqlCommand(AddStudent, conn);
 				int RowAffected = sqlCommand.ExecuteNonQuery();
 				if (RowAffected > 0)

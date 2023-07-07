@@ -11,7 +11,7 @@
 
 <p>
     @Html.ActionLink("Add Empployee Data", "InsertEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-success my-3  me-2" })
-    @Html.ActionLink("Add Employee", "Create", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-primary my-3  me-2" })
+    @Html.ActionLink("Add Employee", "Create", new {}, htmlAttributes: new { @class = "btn btn-sm btn-primary my-3  me-2" })
     @Html.ActionLink("Delete All Employee", "DeleteAllEmployee", string.Empty, htmlAttributes: new { @class = "btn btn-sm btn-danger me-2" })
 </p>
 <table class="table">

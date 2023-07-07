@@ -76,7 +76,7 @@ namespace PracticalTwelve.Controllers
 				return View(employee);
 			}
 			dbOperations.InsertEmployeeWithsp(employee);
-			return RedirectToAction("Index");
+			return RedirectToAction("Index"); 
 		}
 
 		public ActionResult GetDesignationCount()

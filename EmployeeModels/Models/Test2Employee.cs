@@ -10,9 +10,9 @@ namespace EmployeeModels.Model
 		[Required(ErrorMessage = "Enter First name less then 20 character")]
 		[MaxLength(20)]
 		public string FirstName { get; set; }
-		
+
 		[MaxLength(20, ErrorMessage = "Enter Middle name less then 20 character")]
-		public string MiddleName { get; set; }
+		public string MiddleName { get; set; } = null;
 		[Required(ErrorMessage = "Enter Last name less then 20 character.")]
 		[MaxLength(20)]
 		public string LastName { get; set; }
